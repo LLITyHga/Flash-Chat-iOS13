@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().isEnableAutoToolbar = false//убирає фігню над клавіатурой
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true// убирає клавіатуру еслі нажмеш в іншом місці
+        //все це береця в розділі Properties & Functions (ссилка на гітхаб з сторінки на кокоподсах)
         return true
     }
 
